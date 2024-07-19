@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CampFes.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:CampFes.Controllers.CheckController.CheckInfo(System.String,System.String)">
+            <summary>
+            查詢報到資訊
+            </summary>
+            <param name="nick_name"></param>
+            <param name="phone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.CheckController.CheckIn(System.String,System.String)">
+            <summary>
+            報到作業
+            </summary>
+            <param name="rid"></param>
+            <param name="nick_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.LoginController.UserRegis(CampFes.Models.Login.VM_Login)">
+            <summary>
+            註冊
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.LoginController.UserLogin(CampFes.Models.Login.VM_Login)">
+            <summary>
+            登入
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.LoginController.GenAllToken">
+            <summary>
+            產生Token、Refresh Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.LoginController.GenNewToken">
+            <summary>
+            透過Refresh Token 獲取新的Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.QusetController.Add_Single_Question(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            新增一題題目
+            </summary>
+            <param name="question"></param>
+            <param name="is_multi"></param>
+            <param name="option_a"></param>
+            <param name="option_b"></param>
+            <param name="option_c"></param>
+            <param name="option_d"></param>
+            <param name="correct"></param>
+            <param name="hint"></param>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.QusetController.Add_MultiPle_Questions(System.Collections.Generic.List{CampFes.Models.Quest.VM_Add_Quest})">
+            <summary>
+            新增多題題目
+            </summary>
+            <param name="add_Quests"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.QusetController.Qry_Questions">
+            <summary>
+            查詢題庫
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.QusetController.Ask_Question(CampFes.Models.Quest.VM_Ask_Quest)">
+            <summary>
+            出題
+            </summary>
+            <param name="ask_Quest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.QusetController.Ans_Question(CampFes.Models.Quest.VM_Ans_Quest)">
+            <summary>
+            答題
+            </summary>
+            <param name="ans_Quest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CampFes.WebApi.Middleware.ApiLoggingMiddleware">
+            <summary>
+            擷取API串接紀錄中間層
+            </summary>
+        </member>
+        <member name="M:CampFes.WebApi.Middleware.ApiLoggingMiddleware.FormatRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            格式化請求
+            </summary>
+        </member>
+        <member name="M:CampFes.WebApi.Middleware.ApiLoggingMiddleware.FormatResponse(Microsoft.AspNetCore.Http.HttpResponse)">
+            <summary>
+            格式化回應
+            </summary>
+        </member>
+        <member name="M:CampFes.WebApi.Middleware.ApiLoggingMiddleware.FormatHeaders(Microsoft.AspNetCore.Http.IHeaderDictionary)">
+            <summary>
+            格式化標頭
+            </summary>
+        </member>
+        <member name="M:CampFes.WebApi.Utility.Utility.GetConstantValue(System.Type,System.String)">
+            <summary>
+            檢索常數值
+            </summary>
+            <param name="constantsClass"></param>
+            <param name="constantName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

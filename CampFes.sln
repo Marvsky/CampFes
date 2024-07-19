@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampFes.WebApi", "CampFes.WebApi\CampFes.WebApi.csproj", "{BF0382F0-AE6A-44C0-8097-66DEBE47DBD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampFes.Models", "CampFes.Models\CampFes.Models.csproj", "{20212304-4574-434C-B648-3828BCE0CADF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migration", "Migration", "{2D3C5508-78C4-4E24-9F30-7B0A323B7857}"
+	ProjectSection(SolutionItems) = preProject
+		update-migration.bat = update-migration.bat
+		build-migration.bat = build-migration.bat
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampFes.Service", "CampFes.Service\CampFes.Service.csproj", "{006BB556-790D-4ADE-BA5A-86917CFF08A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF0382F0-AE6A-44C0-8097-66DEBE47DBD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0382F0-AE6A-44C0-8097-66DEBE47DBD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0382F0-AE6A-44C0-8097-66DEBE47DBD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0382F0-AE6A-44C0-8097-66DEBE47DBD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20212304-4574-434C-B648-3828BCE0CADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20212304-4574-434C-B648-3828BCE0CADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20212304-4574-434C-B648-3828BCE0CADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20212304-4574-434C-B648-3828BCE0CADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{006BB556-790D-4ADE-BA5A-86917CFF08A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{006BB556-790D-4ADE-BA5A-86917CFF08A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{006BB556-790D-4ADE-BA5A-86917CFF08A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{006BB556-790D-4ADE-BA5A-86917CFF08A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C31B7AD-80C3-4FCB-B28F-F03A67E0989C}
+	EndGlobalSection
+EndGlobal

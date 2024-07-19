@@ -1,0 +1,6 @@
+@CampFes_HostAddress = http://localhost:5062
+
+GET {{CampFes_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

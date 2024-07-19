@@ -1,0 +1,10 @@
+/CampFes.Models/obj
+/CampFes.Models/bin
+/CampFes.Service/obj
+/CampFes.Service/bin
+/CampFes.WebApi/Properties
+/CampFes.WebApi/.config
+/CampFes.WebApi/bin
+/CampFes.WebApi/obj
+/.vs
+/CampFes.WebApi/CampFes.WebApi.csproj.user
