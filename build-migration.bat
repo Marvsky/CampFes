@@ -1,6 +1,6 @@
 @echo off
 
-REM ³]¸m¿é¥X½s½X¬°UTF-8
+REM è¨­ç½®è¼¸å‡ºç·¨ç¢¼ç‚ºUTF-8
 chcp 65001 > nul
 setlocal enabledelayedexpansion
 

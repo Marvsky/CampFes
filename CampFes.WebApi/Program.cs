@@ -18,20 +18,20 @@ namespace CampFes
 
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
 
-            //²K¥[°t¸m
+            //æ·»åŠ é…ç½®
             builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
                                  .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                                  .AddJsonFile($"appsettings.{environmentName}.json", optional: true);
 
             IConfiguration configuration = builder.Configuration;
 
-            //±NNLogµù¥U¨ì¦¹±M®×¤º
+            //å°‡NLogè¨»å†Šåˆ°æ­¤å°ˆæ¡ˆå…§
             builder.Logging.ClearProviders();
-            //³]©wlog¬ö¿ýªº³Ì¤pµ¥¯Å
+            //è¨­å®šlogç´€éŒ„çš„æœ€å°ç­‰ç´š
             builder.Logging.SetMinimumLevel(LogLevel.Trace);
             builder.Logging.AddNLog(configuration);
 
-            //JSON §Ç¦C¤Æ¿ï¶µ
+            //JSON åºåˆ—åŒ–é¸é …
             builder.Services.AddMvc().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
@@ -51,7 +51,7 @@ namespace CampFes
                 }));
 
 
-            //²K¥[ Swagger ªA°È
+            //æ·»åŠ  Swagger æœå‹™
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(option =>
             {
@@ -119,12 +119,11 @@ namespace CampFes
 
             app.UseHttpsRedirection();
 
-            //¤¤¶¡¼h
-            app.UseMiddleware<ApiLoggingMiddleware>(); //Log¬ö¿ý
+            //ä¸­é–“å±¤
+            app.UseMiddleware<ApiLoggingMiddleware>(); //Logç´€éŒ„
 
-            app.UseAuthentication(); //¥[¤JÅçÃÒ
             app.UseRouting();
-            app.UseAuthorization(); //¥[¤J±ÂÅv
+            app.UseAuthorization(); //åŠ å…¥é©—è­‰èˆ‡æŽˆæ¬Š
 
             app.MapControllerRoute(
                 name: "default",

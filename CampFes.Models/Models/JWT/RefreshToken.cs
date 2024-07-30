@@ -1,4 +1,4 @@
-﻿namespace CampFes.Models.JWT
+namespace CampFes.Models.JWT
 {
     public class RefreshToken
     {

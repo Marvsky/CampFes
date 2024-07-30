@@ -26,7 +26,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// µù¥U
+        /// è¨»å†Š
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
@@ -63,12 +63,12 @@ namespace CampFes.Controllers
                     return BadRequest(result);
                 }
 
-                //¨ú±oToken
+                //å–å¾—Token
                 user.Token = JwtService.GenJwtToken();
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "µù¥U¦¨¥\",
+                    Message = "è¨»å†ŠæˆåŠŸ",
                     Data = user
                 };
 
@@ -78,7 +78,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -90,7 +90,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// µn¤J
+        /// ç™»å…¥
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
@@ -127,12 +127,12 @@ namespace CampFes.Controllers
                     return BadRequest(result);
                 }
 
-                //¨ú±oToken
+                //å–å¾—Token
                 user.Token = JwtService.GenJwtToken();
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "µn¤J¦¨¥\",
+                    Message = "ç™»å…¥æˆåŠŸ",
                     Data = user
                 };
 
@@ -142,7 +142,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -154,7 +154,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ²£¥ÍToken¡BRefresh Token
+        /// ç”¢ç”ŸTokenã€Refresh Token
         /// </summary>
         /// <returns></returns>
         [HttpPost, Route("Gentoken")]
@@ -173,7 +173,7 @@ namespace CampFes.Controllers
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "¥Í¦¨Token¦¨¥\",
+                    Message = "ç”ŸæˆTokenæˆåŠŸ",
                     Data = tokenRequest
                 };
             }
@@ -181,7 +181,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_002, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -193,7 +193,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ³z¹LRefresh Token Àò¨ú·sªºToken
+        /// é€éRefresh Token ç²å–æ–°çš„Token
         /// </summary>
         /// <returns></returns>
         [Authorize]
@@ -212,7 +212,7 @@ namespace CampFes.Controllers
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "¥Í¦¨Token¦¨¥\",
+                    Message = "ç”ŸæˆTokenæˆåŠŸ",
                     Data = tokenRequest
                 };
             }
@@ -220,7 +220,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_002, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,

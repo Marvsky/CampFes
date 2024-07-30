@@ -1,4 +1,4 @@
-﻿using CampFes.Models;
+using CampFes.Models;
 using System.Text;
 
 namespace CampFes.WebApi.Middleware

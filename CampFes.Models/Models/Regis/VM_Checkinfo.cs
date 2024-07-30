@@ -1,4 +1,4 @@
-﻿namespace CampFes.Models.Regis
+namespace CampFes.Models.Regis
 {
     /// <summary>
     /// 報到表

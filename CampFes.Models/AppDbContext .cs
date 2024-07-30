@@ -1,4 +1,4 @@
-﻿using CampFes.Models.Login;
+using CampFes.Models.Login;
 using CampFes.Models.Quest;
 using CampFes.Models.Regis;
 using CampFes.Models.System;

@@ -1,4 +1,4 @@
-﻿namespace CampFes.Models.Quest
+namespace CampFes.Models.Quest
 {
     
     public class VM_Ans_Quest

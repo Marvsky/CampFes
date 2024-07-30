@@ -1,4 +1,4 @@
-﻿namespace CampFes.Models
+namespace CampFes.Models
 {
     /// <summary>
     /// 錯誤代碼表

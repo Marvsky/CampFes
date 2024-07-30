@@ -1,4 +1,4 @@
-﻿using CampFes.Models.Quest;
+using CampFes.Models.Quest;
 
 namespace CampFes.Service.Interfaces
 {

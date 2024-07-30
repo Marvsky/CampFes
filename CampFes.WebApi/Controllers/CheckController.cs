@@ -26,7 +26,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ¬d¸ß³ø¨ì¸ê°T
+        /// æŸ¥è©¢å ±åˆ°è³‡è¨Š
         /// </summary>
         /// <param name="nick_name"></param>
         /// <param name="phone"></param>
@@ -44,7 +44,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = "½Ğ¿é¤J¼ÊºÙ"
+                        Message = "è«‹è¼¸å…¥æš±ç¨±"
                     };
                     return Ok(result);
                 }
@@ -54,7 +54,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = "½Ğ¿é¤J§¹¾ã¤â¾÷"
+                        Message = "è«‹è¼¸å…¥å®Œæ•´æ‰‹æ©Ÿ"
                     };
                     return Ok(result);
                 }
@@ -78,7 +78,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = "¬dµL³ø¦W¸ê°T¡A½Ğ½T»{³ø¨ì¤H¬O§_¥¿½T"
+                        Message = "æŸ¥ç„¡å ±åè³‡è¨Šï¼Œè«‹ç¢ºèªå ±åˆ°äººæ˜¯å¦æ­£ç¢º"
                     };
                     return Ok(result);
                 }
@@ -88,7 +88,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = "¤w¦¨¥\³ø¨ì¹L¡A³ø¨ì¤H:" + checkInfo.CHECKER,
+                        Message = "å·²æˆåŠŸå ±åˆ°éï¼Œå ±åˆ°äºº:" + checkInfo.CHECKER,
                         Data = checkInfo
                     };
                     return Ok(result);
@@ -106,7 +106,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -118,7 +118,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ³ø¨ì§@·~
+        /// å ±åˆ°ä½œæ¥­
         /// </summary>
         /// <param name="rid"></param>
         /// <param name="nick_name"></param>
@@ -136,7 +136,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = "¬d¸ßRIDµo¥Í²§±`"
+                        Message = "æŸ¥è©¢RIDç™¼ç”Ÿç•°å¸¸"
                     };
                     return Ok(result);
                 }
@@ -146,7 +146,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = "½Ğ¿é¤J¼ÊºÙ"
+                        Message = "è«‹è¼¸å…¥æš±ç¨±"
                     };
                     return Ok(result);
                 }
@@ -166,7 +166,7 @@ namespace CampFes.Controllers
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "³ø¨ì¦¨¥\¡A½Ğ¥X¥Ü¦¹µe­±"
+                    Message = "å ±åˆ°æˆåŠŸï¼Œè«‹å‡ºç¤ºæ­¤ç•«é¢"
                 };
 
                 return Ok(result);
@@ -175,7 +175,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,

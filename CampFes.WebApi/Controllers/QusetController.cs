@@ -22,7 +22,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ·s¼W¤@ÃDÃD¥Ø
+        /// æ–°å¢ä¸€é¡Œé¡Œç›®
         /// </summary>
         /// <param name="question"></param>
         /// <param name="is_multi"></param>
@@ -79,7 +79,7 @@ namespace CampFes.Controllers
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "·s¼WÃD¥Ø¦¨¥\",
+                    Message = "æ–°å¢é¡Œç›®æˆåŠŸ",
                 };
 
                 return Ok(result);
@@ -88,7 +88,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -100,7 +100,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ·s¼W¦hÃDÃD¥Ø
+        /// æ–°å¢å¤šé¡Œé¡Œç›®
         /// </summary>
         /// <param name="add_Quests"></param>
         /// <returns></returns>
@@ -131,7 +131,7 @@ namespace CampFes.Controllers
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "·s¼WÃD¥Ø¦¨¥\",
+                    Message = "æ–°å¢é¡Œç›®æˆåŠŸ",
                 };
 
                 return Ok(result);
@@ -140,7 +140,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -152,7 +152,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ¬d¸ßÃD®w
+        /// æŸ¥è©¢é¡Œåº«
         /// </summary>
         /// <returns></returns>
         [HttpPost, Route("Qry_Quest")]
@@ -179,7 +179,7 @@ namespace CampFes.Controllers
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "¬d¸ß¦¨¥\",
+                    Message = "æŸ¥è©¢æˆåŠŸ",
                     Data = questList,
                 };
 
@@ -189,7 +189,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -201,7 +201,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// ¥XÃD
+        /// å‡ºé¡Œ
         /// </summary>
         /// <param name="ask_Quest"></param>
         /// <returns></returns>
@@ -229,7 +229,7 @@ namespace CampFes.Controllers
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "µo§G¦¨¥\",
+                    Message = "ç™¼ä½ˆæˆåŠŸ",
                     Data = post,
                 };
 
@@ -239,7 +239,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,
@@ -251,7 +251,7 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// µªÃD
+        /// ç­”é¡Œ
         /// </summary>
         /// <param name="ans_Quest"></param>
         /// <returns></returns>
@@ -264,7 +264,7 @@ namespace CampFes.Controllers
             {
                 string errMsg = "";
 
-                //¥¿½Tµª®×
+                //æ­£ç¢ºç­”æ¡ˆ
                 var correct = QuestService.ANSWER(ans_Quest, ref errMsg);
                 if (!string.IsNullOrWhiteSpace(errMsg))
                 {
@@ -279,7 +279,7 @@ namespace CampFes.Controllers
 
                 if (correct != ans_Quest.ANSWER)
                 {
-                    correct = "¥¿½Tµª®×¬O:" + correct;
+                    correct = "æ­£ç¢ºç­”æ¡ˆæ˜¯:" + correct;
                 }
                 else
                 {
@@ -298,7 +298,7 @@ namespace CampFes.Controllers
             {
                 Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
 
-                //¸Ô²ÓException¤£¶Ç¦Ü«eºİ ¥hLog¬d
+                //è©³ç´°Exceptionä¸å‚³è‡³å‰ç«¯ å»LogæŸ¥
                 result = new ResultModel()
                 {
                     Success = false,

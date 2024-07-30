@@ -1,4 +1,4 @@
-﻿using CampFes.Service.Interfaces;
+using CampFes.Service.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

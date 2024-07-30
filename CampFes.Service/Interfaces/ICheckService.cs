@@ -1,4 +1,4 @@
-﻿using CampFes.Models.Regis;
+using CampFes.Models.Regis;
 
 namespace CampFes.Service.Interfaces
 {

@@ -1,4 +1,4 @@
-﻿namespace CampFes.Models
+namespace CampFes.Models
 {
     public class ResultModel
     {

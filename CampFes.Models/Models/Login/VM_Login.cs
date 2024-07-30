@@ -1,4 +1,4 @@
-﻿namespace CampFes.Models.Login
+namespace CampFes.Models.Login
 {
     public class VM_Login
     {

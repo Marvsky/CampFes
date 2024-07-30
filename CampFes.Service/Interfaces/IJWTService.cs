@@ -1,4 +1,4 @@
-﻿namespace CampFes.Service.Interfaces
+namespace CampFes.Service.Interfaces
 {
     public interface IJwtService
     {
