@@ -14,6 +14,7 @@ namespace CampFes.WebApi.Utility
         {
             FieldInfo? fieldInfo = constantsClass.GetFields(BindingFlags.Public | BindingFlags.Static).FirstOrDefault(f => f.Name == constantName);
 
+            //找不到就回傳原訊息
             if (fieldInfo == null)
             {
                 return constantName;

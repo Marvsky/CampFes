@@ -1,4 +1,5 @@
 using CampFes.Models.Login;
+using CampFes.Models.Lottery;
 using CampFes.Models.Quest;
 using CampFes.Models.Regis;
 using CampFes.Models.System;
@@ -15,6 +16,9 @@ namespace CampFes.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Nokey Table
+            //[AllowPlayer] [QuestHistory]
+
             modelBuilder.Entity<AllowPlayer>(entity =>
             {
                 entity.Property(e => e.IS_STAFF).HasDefaultValue("N");
@@ -24,12 +28,20 @@ namespace CampFes.Models
             modelBuilder.Entity<EasyUser>(entity =>
             {
                 entity.Property(o => o.UID).ValueGeneratedNever();
+                entity.Property(e => e.IS_LOGIN).HasDefaultValue("N");
+                entity.Property(e => e.IS_RECIEVED).HasDefaultValue("N");
+            });
+
+            modelBuilder.Entity<Prize>(entity =>
+            {
+                entity.Property(o => o.PID).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<QuestHistory>(entity =>
             {
-                entity.Property(e => e.START_TIME).HasDefaultValueSql("GETDATE()");
+                //組合鍵
                 entity.HasKey(o => new { o.UID, o.QNO });
+                entity.Property(e => e.START_TIME).HasDefaultValueSql("GETDATE()");
             });
 
             modelBuilder.Entity<Question>(entity =>
@@ -39,8 +51,8 @@ namespace CampFes.Models
 
             modelBuilder.Entity<Registration>(entity =>
             {
-                entity.Property(e => e.IS_RECIEVED).HasDefaultValue("N");
                 entity.Property(o => o.RID).ValueGeneratedNever();
+                entity.Property(e => e.IS_RECIEVED).HasDefaultValue("N");
             });
 
             modelBuilder.Entity<CheckPoint>(entity =>
@@ -55,6 +67,9 @@ namespace CampFes.Models
         public DbSet<AllowPlayer> AllowPlayer { get; set; }
         public DbSet<EasyUser> EasyUser { get; set; }
         public DbSet<Role> Role { get; set; }
+
+        //Prize
+        public DbSet<Prize> Prize { get; set; }
 
         //Quest
         public DbSet<QuestHistory> QuestHistory { get; set; }

@@ -16,8 +16,8 @@ namespace CampFes.Models.Migrations
                 columns: table => new
                 {
                     NICK_NAME = table.Column<string>(type: "nvarchar(20)", nullable: false, comment: "暱稱"),
-                    REMARK = table.Column<string>(type: "nvarchar(100)", nullable: false, comment: "備註"),
-                    IS_STAFF = table.Column<string>(type: "varchar(1)", nullable: false, comment: "是否是工作人員")
+                    REMARK = table.Column<string>(type: "nvarchar(100)", nullable: true, comment: "備註"),
+                    IS_STAFF = table.Column<string>(type: "varchar(1)", nullable: false, defaultValue: "N", comment: "是否是工作人員")
                 },
                 constraints: table =>
                 {
@@ -27,7 +27,7 @@ namespace CampFes.Models.Migrations
                 name: "CheckPoint",
                 columns: table => new
                 {
-                    CID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CID = table.Column<int>(type: "int", nullable: false),
                     NAME = table.Column<string>(type: "nvarchar(20)", nullable: false, comment: "名稱"),
                     DESCRIPTION = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "說明"),
                     QRCODE = table.Column<string>(type: "varchar(max)", nullable: false, comment: "QRCODE條碼"),
@@ -44,8 +44,7 @@ namespace CampFes.Models.Migrations
                 name: "EasyUser",
                 columns: table => new
                 {
-                    UID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UID = table.Column<int>(type: "int", nullable: false),
                     NICK_NAME = table.Column<string>(type: "nvarchar(100)", nullable: false, comment: "暱稱"),
                     FINGERPRINT = table.Column<string>(type: "varchar(max)", nullable: false, comment: "指紋"),
                     REMARK = table.Column<string>(type: "nvarchar(100)", nullable: true, comment: "備註"),
@@ -82,7 +81,7 @@ namespace CampFes.Models.Migrations
                 {
                     UID = table.Column<int>(type: "int", nullable: false, comment: "用戶 UID"),
                     QNO = table.Column<int>(type: "int", nullable: false, comment: "問題序號1~10"),
-                    CID = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "QRCODE CID"),
+                    CID = table.Column<int>(type: "int", nullable: false, comment: "QRCODE CID"),
                     QID = table.Column<int>(type: "int", nullable: false, comment: "題目 QID"),
                     ANSWER = table.Column<string>(type: "varchar(4)", nullable: true, comment: "答題"),
                     START_TIME = table.Column<DateTime>(type: "datetime", nullable: true, defaultValueSql: "GETDATE()", comment: "答題起始時間"),
@@ -98,8 +97,7 @@ namespace CampFes.Models.Migrations
                 name: "Question",
                 columns: table => new
                 {
-                    QID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    QID = table.Column<int>(type: "int", nullable: false),
                     QUESTION = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "問題"),
                     IS_MULTI = table.Column<string>(type: "varchar(1)", nullable: false, comment: "是否為複選題"),
                     OPTION_A = table.Column<string>(type: "nvarchar(20)", nullable: false, comment: "選項A"),
@@ -120,13 +118,19 @@ namespace CampFes.Models.Migrations
                 name: "Registration",
                 columns: table => new
                 {
+                    RID = table.Column<int>(type: "int", nullable: false),
                     NICK_NAMES = table.Column<string>(type: "nvarchar(MAX)", nullable: false, comment: "報到人暱稱(可多人)"),
+                    PHONES = table.Column<string>(type: "varchar(MAX)", nullable: false, comment: "報到人手機(可多組)"),
                     ITEMS = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "領取品"),
-                    IS_RECIEVED = table.Column<string>(type: "varchar(1)", nullable: false, comment: "領取紀錄"),
-                    UPDATE_TIME = table.Column<DateTime>(type: "datetime", nullable: false, comment: "更新時間")
+                    AREA = table.Column<string>(type: "varchar(10)", nullable: true, comment: "營位"),
+                    IS_RECIEVED = table.Column<string>(type: "varchar(1)", nullable: false, defaultValue: "N", comment: "領取紀錄"),
+                    CHECKER = table.Column<string>(type: "nvarchar(20)", nullable: true, comment: "實際報到人"),
+                    REMARK = table.Column<string>(type: "nvarchar(200)", nullable: true, comment: "備註"),
+                    UPDATE_TIME = table.Column<DateTime>(type: "datetime", nullable: true, comment: "更新時間")
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Registration", x => x.RID);
                 });
 
             migrationBuilder.CreateTable(
@@ -140,17 +144,6 @@ namespace CampFes.Models.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Role", x => x.ROLE);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Staff",
-                columns: table => new
-                {
-                    STAFFNAME = table.Column<string>(type: "nvarchar(20)", nullable: false, comment: "幹部暱稱")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Staff", x => x.STAFFNAME);
                 });
         }
 
@@ -180,9 +173,6 @@ namespace CampFes.Models.Migrations
 
             migrationBuilder.DropTable(
                 name: "Role");
-
-            migrationBuilder.DropTable(
-                name: "Staff");
         }
     }
 }

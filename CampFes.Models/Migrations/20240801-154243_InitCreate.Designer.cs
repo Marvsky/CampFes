@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CampFes.Models.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240718-160304_UpdateCheckin")]
-    partial class UpdateCheckin
+    [Migration("20240801-154243_InitCreate")]
+    partial class InitCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,7 +53,9 @@ namespace CampFes.Models.Migrations
                 {
                     b.Property<string>("IS_STAFF")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("varchar(1)")
+                        .HasDefaultValue("N")
                         .HasComment("是否是工作人員");
                     b.Property<string>("NICK_NAME")
                         .IsRequired()
@@ -67,9 +69,7 @@ namespace CampFes.Models.Migrations
             modelBuilder.Entity("CampFes.Models.Login.EasyUser", b =>
                 {
                     b.Property<int>("UID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UID"));
                     b.Property<DateTime?>("CREATE_TIME")
                         .HasColumnType("datetime")
                         .HasComment("建立時間");
@@ -140,9 +140,7 @@ namespace CampFes.Models.Migrations
             modelBuilder.Entity("CampFes.Models.Quest.Question", b =>
                 {
                     b.Property<int>("QID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QID"));
                     b.Property<string>("AUTHOR")
                         .HasColumnType("nvarchar(20)")
                         .HasComment("出題者");
@@ -185,6 +183,8 @@ namespace CampFes.Models.Migrations
                 });
             modelBuilder.Entity("CampFes.Models.Regis.Registration", b =>
                 {
+                    b.Property<int>("RID")
+                        .HasColumnType("int");
                     b.Property<string>("AREA")
                         .HasColumnType("varchar(10)")
                         .HasComment("營位");
@@ -193,7 +193,9 @@ namespace CampFes.Models.Migrations
                         .HasComment("實際報到人");
                     b.Property<string>("IS_RECIEVED")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("varchar(1)")
+                        .HasDefaultValue("N")
                         .HasComment("領取紀錄");
                     b.Property<string>("ITEMS")
                         .HasColumnType("nvarchar(max)")
@@ -210,9 +212,9 @@ namespace CampFes.Models.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasComment("備註");
                     b.Property<DateTime?>("UPDATE_TIME")
-                        .IsRequired()
                         .HasColumnType("datetime")
                         .HasComment("更新時間");
+                    b.HasKey("RID");
                     b.ToTable("Registration");
                 });
             modelBuilder.Entity("CampFes.Models.System.ErrorLog", b =>
