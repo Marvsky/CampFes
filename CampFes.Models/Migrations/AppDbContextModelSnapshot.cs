@@ -77,6 +77,11 @@ namespace CampFes.Models.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasComment("備註");
 
+                    b.Property<string>("UNI_QRCODE")
+                        .IsRequired()
+                        .HasColumnType("varchar(max)")
+                        .HasComment("電子身分證");
+
                     b.ToTable("AllowPlayer");
                 });
 
@@ -92,12 +97,30 @@ namespace CampFes.Models.Migrations
                     b.Property<string>("FINGERPRINT")
                         .IsRequired()
                         .HasColumnType("varchar(max)")
-                        .HasComment("指紋");
+                        .HasComment("手機指紋");
+
+                    b.Property<string>("IS_LOGIN")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(1)")
+                        .HasDefaultValue("N")
+                        .HasComment("是否登入中");
+
+                    b.Property<string>("IS_RECIEVED")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(1)")
+                        .HasDefaultValue("N")
+                        .HasComment("領取紀錄");
 
                     b.Property<string>("NICK_NAME")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasComment("暱稱");
+
+                    b.Property<int?>("PID")
+                        .HasColumnType("int")
+                        .HasComment("闖關獎品編號");
 
                     b.Property<string>("REMARK")
                         .HasColumnType("nvarchar(100)")
@@ -106,6 +129,11 @@ namespace CampFes.Models.Migrations
                     b.Property<string>("ROLE")
                         .HasColumnType("varchar(10)")
                         .HasComment("權限角色");
+
+                    b.Property<string>("UNI_QRCODE")
+                        .IsRequired()
+                        .HasColumnType("varchar(max)")
+                        .HasComment("電子身分證");
 
                     b.HasKey("UID");
 
@@ -130,6 +158,37 @@ namespace CampFes.Models.Migrations
                     b.HasKey("ROLE");
 
                     b.ToTable("Role");
+                });
+
+            modelBuilder.Entity("CampFes.Models.Lottery.Prize", b =>
+                {
+                    b.Property<int>("PID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PID"));
+
+                    b.Property<string>("DESCRIPTION")
+                        .HasColumnType("nvarchar(100)")
+                        .HasComment("說明");
+
+                    b.Property<string>("GRADING")
+                        .IsRequired()
+                        .HasColumnType("varchar(1)")
+                        .HasComment("等級");
+
+                    b.Property<int?>("QUANTITY")
+                        .IsRequired()
+                        .HasColumnType("int")
+                        .HasComment("數量");
+
+                    b.Property<string>("REMARK")
+                        .HasColumnType("nvarchar(200)")
+                        .HasComment("備註");
+
+                    b.HasKey("PID");
+
+                    b.ToTable("Prize");
                 });
 
             modelBuilder.Entity("CampFes.Models.Quest.QuestHistory", b =>

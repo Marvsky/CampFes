@@ -20,18 +20,26 @@
             <param name="nick_name"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.LoginController.UserRegis(CampFes.Models.Login.VM_Login)">
+        <member name="M:CampFes.Controllers.LoginController.UserLogin(CampFes.Models.Login.VM_Login)">
             <summary>
-            註冊
+            刷讀QRCODE後 判斷走註冊或登入
             </summary>
             <param name="login"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.LoginController.UserLogin(CampFes.Models.Login.VM_Login)">
+        <member name="M:CampFes.Controllers.LoginController.UserLogout(CampFes.Models.Login.VM_Login)">
             <summary>
-            登入
+            登出
             </summary>
             <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.Controllers.LoginController.UserUnbind(System.String,System.String)">
+            <summary>
+            解除手機綁定
+            </summary>
+            <param name="UID"></param>
+            <param name="NICK_NAME"></param>
             <returns></returns>
         </member>
         <member name="M:CampFes.Controllers.LoginController.GenAllToken">

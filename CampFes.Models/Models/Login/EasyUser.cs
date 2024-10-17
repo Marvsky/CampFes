@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CampFes.Models.Login
 {
+    /// <summary>
+    /// 註冊使用者
+    /// </summary>
     public class EasyUser
     {
         [Key]
@@ -18,12 +21,43 @@ namespace CampFes.Models.Login
         public string? NICK_NAME { get; set; }
 
         /// <summary>
-        /// 手機
+        /// 手機指紋
         /// </summary>
         [Required]
         [Column(TypeName = "varchar(max)")]
-        [Comment("指紋")]
+        [Comment("手機指紋")]
         public string? FINGERPRINT { get; set; }
+
+        /// <summary>
+        /// 電子身分證
+        /// </summary>
+        [Required]
+        [Column(TypeName = "varchar(max)")]
+        [Comment("電子身分證")]
+        public string? UNI_QRCODE { get; set; }
+
+        /// <summary>
+        /// 登入狀態 N:未登入 Y:登入中
+        /// </summary>
+        [Required]
+        [Column(TypeName = "varchar(1)")]
+        [Comment("是否登入中")]
+        public string? IS_LOGIN { get; set; }
+
+        /// <summary>
+        /// PID
+        /// </summary>
+        [Column(TypeName = "int")]
+        [Comment("闖關獎品編號")]
+        public int? PID { get; set; }
+
+        /// <summary>
+        /// 領取紀錄 N:未領取 Y:已領取
+        /// </summary>
+        [Required]
+        [Column(TypeName = "varchar(1)")]
+        [Comment("領取紀錄")]
+        public string? IS_RECIEVED { get; set; } = "N";
 
         /// <summary>
         /// 備註

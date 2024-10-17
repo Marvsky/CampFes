@@ -1,12 +1,6 @@
-using CampFes.Models.JWT;
 using CampFes.Models;
 using CampFes.Service.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using CampFes.Models.Login;
-using CampFes.WebApi.Utility;
-using CampFes.Models.Quest;
-using CampFes.Service.DataServices;
 
 namespace CampFes.Controllers
 {

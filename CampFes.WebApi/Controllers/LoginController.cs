@@ -1,10 +1,10 @@
-using CampFes.Models.JWT;
 using CampFes.Models;
+using CampFes.Models.JWT;
+using CampFes.Models.Login;
 using CampFes.Service.Interfaces;
+using CampFes.WebApi.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using CampFes.Models.Login;
-using CampFes.WebApi.Utility;
 
 namespace CampFes.Controllers
 {
@@ -26,20 +26,38 @@ namespace CampFes.Controllers
         }
 
         /// <summary>
-        /// 註冊
+        /// 刷讀QRCODE後 判斷走註冊或登入
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        [HttpPost, Route("Regis")]
-        public IActionResult UserRegis(VM_Login login)
+        [HttpPost, Route("Login")]
+        public IActionResult UserLogin(VM_Login login)
         {
             ResultModel result;
 
             try
             {
-                string errMsg = "";
+                string errMsg;
+                string status;
+                (status, errMsg) = LoginService.CheckUserStatus(login.UNI_QRCODE, login.FINGERPRINT);
 
-                VM_UserInfo? user = LoginService.Register(login.NICK_NAME, login.FINGERPRINT, ref errMsg);
+                VM_UserInfo? user = null;
+                //status = 1 尚未註冊
+                //status = 2 正常登入中
+                //status = 3 已註冊但非綁定手機
+                if (status == "1")
+                {
+                    user = LoginService.Register(login.UID, login.FINGERPRINT, ref errMsg);
+                }
+                else if (status == "2")
+                {
+                    user = LoginService.Login(login.UID, login.FINGERPRINT, ref errMsg);
+                }
+                else
+                {
+                    errMsg = ErrorMessage.L_005;
+                }
+
 
                 if (!string.IsNullOrWhiteSpace(errMsg))
                 {
@@ -64,11 +82,11 @@ namespace CampFes.Controllers
                 }
 
                 //取得Token
-                user.Token = JwtService.GenJwtToken();
+                //user.Token = JwtService.GenJwtToken();
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "註冊成功",
+                    Message = "登入成功",
                     Data = user
                 };
 
@@ -86,27 +104,27 @@ namespace CampFes.Controllers
                 };
 
                 return BadRequest(result);
-            };
+            }
         }
 
         /// <summary>
-        /// 登入
+        /// 登出
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        [HttpPost, Route("Login")]
-        public IActionResult UserLogin(VM_Login login)
+        [HttpPost, Route("Logout")]
+        public IActionResult UserLogout(VM_Login login)
         {
             ResultModel result;
 
             try
             {
-                string errMsg = "";
-
-                VM_UserInfo? user = LoginService.Login(login.NICK_NAME, login.FINGERPRINT, ref errMsg);
+                string? errMsg = LoginService.Logout(login.UID);
 
                 if (!string.IsNullOrWhiteSpace(errMsg))
                 {
+                    Logger.LogError(":{ErrMsg}", errMsg);
+
                     result = new ResultModel()
                     {
                         Success = false,
@@ -116,24 +134,61 @@ namespace CampFes.Controllers
                     return BadRequest(result);
                 }
 
-                if (user == null)
+                result = new ResultModel()
                 {
+                    Success = true,
+                    Message = "登出成功"
+                };
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
+
+                //詳細Exception不傳至前端 去Log查
+                result = new ResultModel()
+                {
+                    Success = false,
+                    Message = ErrorMessage.S_001,
+                };
+
+                return BadRequest(result);
+            }
+        }
+
+        /// <summary>
+        /// 解除手機綁定
+        /// </summary>
+        /// <param name="UID"></param>
+        /// <param name="NICK_NAME"></param>
+        /// <returns></returns>
+        [HttpGet, Route("Unbind")]
+        public IActionResult UserUnbind(string UID, string NICK_NAME)
+        {
+            ResultModel result;
+
+            try
+            {
+                string? errMsg = LoginService.Unbind(UID, NICK_NAME);
+
+                if (!string.IsNullOrWhiteSpace(errMsg))
+                {
+                    Logger.LogError(":{ErrMsg}", errMsg);
+
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = ErrorMessage.L_006,
+                        Message = Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
                     };
 
                     return BadRequest(result);
                 }
 
-                //取得Token
-                user.Token = JwtService.GenJwtToken();
                 result = new ResultModel()
                 {
                     Success = true,
-                    Message = "登入成功",
-                    Data = user
+                    Message = "解綁成功"
                 };
 
                 return Ok(result);
