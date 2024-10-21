@@ -39,7 +39,6 @@ namespace CampFes.Models.Login
         /// <summary>
         /// 登入狀態 N:未登入 Y:登入中
         /// </summary>
-        [Required]
         [Column(TypeName = "varchar(1)")]
         [Comment("是否登入中")]
         public string? IS_LOGIN { get; set; }

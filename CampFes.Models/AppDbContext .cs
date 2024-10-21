@@ -25,11 +25,21 @@ namespace CampFes.Models
                 entity.HasNoKey();
             });
 
+            modelBuilder.Entity<AllUsers>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
             modelBuilder.Entity<EasyUser>(entity =>
             {
                 entity.Property(o => o.UID).ValueGeneratedNever();
                 entity.Property(e => e.IS_LOGIN).HasDefaultValue("N");
                 entity.Property(e => e.IS_RECIEVED).HasDefaultValue("N");
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.Property(e => e.HAS_PRIZE).HasDefaultValue("N");
             });
 
             modelBuilder.Entity<Prize>(entity =>
@@ -65,6 +75,7 @@ namespace CampFes.Models
 
         //Login
         public DbSet<AllowPlayer> AllowPlayer { get; set; }
+        public DbSet<AllUsers> AllUsers { get; set; }
         public DbSet<EasyUser> EasyUser { get; set; }
         public DbSet<Role> Role { get; set; }
 

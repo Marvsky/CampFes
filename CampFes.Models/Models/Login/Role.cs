@@ -23,6 +23,14 @@ namespace CampFes.Models.Login
         public string? NAME { get; set; }
 
         /// <summary>
+        /// 是否有參加獎
+        /// </summary>
+        [Required]
+        [Column(TypeName = "varchar(1)")]
+        [Comment("是否有參加獎")]
+        public string? HAS_PRIZE { get; set; } = "N";
+
+        /// <summary>
         /// 權限等級
         /// </summary>
         [Required]
