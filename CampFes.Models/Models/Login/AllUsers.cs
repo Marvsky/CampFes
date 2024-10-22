@@ -9,6 +9,20 @@ namespace CampFes.Models.Login
     public class AllUsers
     {
         /// <summary>
+        /// 序號
+        /// </summary>
+        [Column(TypeName = "int")]
+        [Comment("序號")]
+        public int SNO {  get; set; }
+
+        /// <summary>
+        /// 報名序號
+        /// </summary>
+        [Column(TypeName = "int")]
+        [Comment("報名序號")]
+        public int? GROUPNO { get; set; }
+
+        /// <summary>
         /// 報到代表人
         /// </summary>
         [Column(TypeName = "nvarchar(20)")]

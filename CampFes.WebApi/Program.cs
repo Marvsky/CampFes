@@ -97,6 +97,7 @@ namespace CampFes
             builder.Services.AddSingleton<ICheckService, CheckService>();
             builder.Services.AddSingleton<IJwtService, JwtService>();
             builder.Services.AddSingleton<ILoginService, LoginService>();
+            builder.Services.AddSingleton<IQrcodeService, QrcodeService>();
             builder.Services.AddSingleton<IQuestService, QuestService>();
             #endregion
 

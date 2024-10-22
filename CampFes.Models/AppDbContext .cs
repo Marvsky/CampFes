@@ -17,12 +17,12 @@ namespace CampFes.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Nokey Table
-            //[AllowPlayer] [QuestHistory]
+            //[AllowPlayer] [AllUsers] [QuestHistory]
 
             modelBuilder.Entity<AllowPlayer>(entity =>
             {
-                entity.Property(e => e.IS_STAFF).HasDefaultValue("N");
                 entity.HasNoKey();
+                entity.Property(e => e.IS_STAFF).HasDefaultValue("N");
             });
 
             modelBuilder.Entity<AllUsers>(entity =>

@@ -48,7 +48,8 @@ namespace CampFes.WebApi.Middleware
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_003, ex.Message);
+                context.Response.StatusCode = 500;
+                _logger.LogError(ex, "{ErrCode}:{ErrMsg}", ErrorMessage.S_001, ex.Message);
             }
         }
 

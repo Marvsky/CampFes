@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CampFes.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class LoginController : ControllerBase
     {
         private ILogger Logger { get; }

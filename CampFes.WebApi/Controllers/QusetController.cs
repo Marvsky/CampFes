@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CampFes.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class QusetController : ControllerBase
     {
         private ILogger Logger { get; }

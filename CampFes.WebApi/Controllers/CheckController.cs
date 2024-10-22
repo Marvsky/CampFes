@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CampFes.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class CheckController : ControllerBase
     {
         private ILogger Logger { get; }
