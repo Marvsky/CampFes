@@ -16,9 +16,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="C:\Users\HLCLLIT04\.nuget\packages\nlog.schema\5.3.2\contentFiles\any\any\NLog.xsd">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
 		<Content Include="nlog.config" />
 		<Content Include="NLog.xsd">
 		</Content>
