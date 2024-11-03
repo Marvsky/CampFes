@@ -2,7 +2,7 @@ using CampFes.Models;
 using CampFes.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CampFes.Controllers
+namespace CampFes.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,10 +1,9 @@
 using CampFes.Models;
 using CampFes.Models.Quest;
 using CampFes.Service.Interfaces;
-using CampFes.WebApi.Utility;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CampFes.Controllers
+namespace CampFes.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -13,7 +12,7 @@ namespace CampFes.Controllers
         private ILogger Logger { get; }
         private IQuestService QuestService { get; }
 
-        public QusetController(ILogger<LoginController> ilogger, IQuestService iQuestService)
+        public QusetController(ILogger<QusetController> ilogger, IQuestService iQuestService)
         {
             Logger = ilogger;
             Logger.LogInformation("Nlog injeceted into QusetController");
@@ -220,7 +219,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
+                        Message = Utility.Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
                     };
 
                     return BadRequest(result);
@@ -271,7 +270,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
+                        Message = Utility.Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
                     };
 
                     return BadRequest(result);

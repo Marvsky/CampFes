@@ -2,11 +2,10 @@ using CampFes.Models;
 using CampFes.Models.JWT;
 using CampFes.Models.Login;
 using CampFes.Service.Interfaces;
-using CampFes.WebApi.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CampFes.Controllers
+namespace CampFes.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -64,7 +63,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
+                        Message = Utility.Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
                     };
 
                     return BadRequest(result);
@@ -128,7 +127,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
+                        Message = Utility.Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
                     };
 
                     return BadRequest(result);
@@ -179,7 +178,7 @@ namespace CampFes.Controllers
                     result = new ResultModel()
                     {
                         Success = false,
-                        Message = Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
+                        Message = Utility.Utility.GetConstantValue(typeof(ErrorMessage), errMsg),
                     };
 
                     return BadRequest(result);

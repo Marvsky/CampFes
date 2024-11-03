@@ -1,4 +1,4 @@
-using CampFes.Models.Login;
+using CampFes.Models.Qrcode;
 
 namespace CampFes.Service.Interfaces
 {
@@ -9,6 +9,6 @@ namespace CampFes.Service.Interfaces
         /// </summary>
         /// <param name="MSG"></param>
         /// <returns></returns>
-        List<AllUsers> getQRCodeList(ref string MSG);
+        List<NamePlate> GetQRCodeList(ref string MSG);
     }
 }

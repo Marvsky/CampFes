@@ -1,4 +1,4 @@
-using CampFes.Models.Login;
+using CampFes.Models.Qrcode;
 using CampFes.Service.Interfaces;
 using Dapper;
 using Microsoft.Extensions.Configuration;
@@ -20,7 +20,7 @@ namespace CampFes.Service.DataServices
         /// </summary>
         /// <param name="MSG"></param>
         /// <returns></returns>
-        public List<AllUsers> getQRCodeList(ref string MSG)
+        public List<NamePlate> GetQRCodeList(ref string MSG)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace CampFes.Service.DataServices
 
                 DynamicParameters parameters = new();
                 parameters.Add("@MSG", dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Output, size: 200);
-                var qrCodeList = sConn.Query<AllUsers>(sql, parameters, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                var qrCodeList = sConn.Query<NamePlate>(sql, parameters, commandType: System.Data.CommandType.StoredProcedure).ToList();
 
                 var msg = parameters.Get<string>("MSG");
 

@@ -4,7 +4,7 @@
         <name>CampFes.WebApi</name>
     </assembly>
     <members>
-        <member name="M:CampFes.Controllers.CheckController.CheckInfo(System.String,System.String)">
+        <member name="M:CampFes.WebApi.Controllers.CheckController.CheckInfo(System.String,System.String)">
             <summary>
             查詢報到資訊
             </summary>
@@ -12,7 +12,7 @@
             <param name="phone"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.CheckController.CheckIn(System.String,System.String)">
+        <member name="M:CampFes.WebApi.Controllers.CheckController.CheckIn(System.String,System.String)">
             <summary>
             報到作業
             </summary>
@@ -20,21 +20,21 @@
             <param name="nick_name"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.LoginController.UserLogin(CampFes.Models.Login.VM_Login)">
+        <member name="M:CampFes.WebApi.Controllers.LoginController.UserLogin(CampFes.Models.Login.VM_Login)">
             <summary>
             刷讀QRCODE後 判斷走註冊或登入
             </summary>
             <param name="login"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.LoginController.UserLogout(CampFes.Models.Login.VM_Login)">
+        <member name="M:CampFes.WebApi.Controllers.LoginController.UserLogout(CampFes.Models.Login.VM_Login)">
             <summary>
             登出
             </summary>
             <param name="login"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.LoginController.UserUnbind(System.String,System.String)">
+        <member name="M:CampFes.WebApi.Controllers.LoginController.UserUnbind(System.String,System.String)">
             <summary>
             解除手機綁定
             </summary>
@@ -42,19 +42,32 @@
             <param name="NICK_NAME"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.LoginController.GenAllToken">
+        <member name="M:CampFes.WebApi.Controllers.LoginController.GenAllToken">
             <summary>
             產生Token、Refresh Token
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.LoginController.GenNewToken">
+        <member name="M:CampFes.WebApi.Controllers.LoginController.GenNewToken">
             <summary>
             透過Refresh Token 獲取新的Token
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.QusetController.Add_Single_Question(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:CampFes.WebApi.Controllers.QrcodeController.GenerateQRCodeZip">
+            <summary>
+            產生QRCODE圖檔
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.WebApi.Controllers.QrcodeController.GenerateFamousQRCodeZip(System.String)">
+            <summary>
+            產生名牌ZIP
+            </summary>
+            <param name="filter">1:Staff 2:一般 3:表演者隨行 無:全部</param>
+            <returns></returns>
+        </member>
+        <member name="M:CampFes.WebApi.Controllers.QusetController.Add_Single_Question(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             新增一題題目
             </summary>
@@ -69,27 +82,27 @@
             <param name="author"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.QusetController.Add_MultiPle_Questions(System.Collections.Generic.List{CampFes.Models.Quest.VM_Add_Quest})">
+        <member name="M:CampFes.WebApi.Controllers.QusetController.Add_MultiPle_Questions(System.Collections.Generic.List{CampFes.Models.Quest.VM_Add_Quest})">
             <summary>
             新增多題題目
             </summary>
             <param name="add_Quests"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.QusetController.Qry_Questions">
+        <member name="M:CampFes.WebApi.Controllers.QusetController.Qry_Questions">
             <summary>
             查詢題庫
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.QusetController.Ask_Question(CampFes.Models.Quest.VM_Ask_Quest)">
+        <member name="M:CampFes.WebApi.Controllers.QusetController.Ask_Question(CampFes.Models.Quest.VM_Ask_Quest)">
             <summary>
             出題
             </summary>
             <param name="ask_Quest"></param>
             <returns></returns>
         </member>
-        <member name="M:CampFes.Controllers.QusetController.Ans_Question(CampFes.Models.Quest.VM_Ans_Quest)">
+        <member name="M:CampFes.WebApi.Controllers.QusetController.Ans_Question(CampFes.Models.Quest.VM_Ans_Quest)">
             <summary>
             答題
             </summary>
